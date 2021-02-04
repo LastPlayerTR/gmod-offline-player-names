@@ -7,7 +7,7 @@ An easy way to find the names of players leaving the game.
 Copy into "lua/autorun/server/xxxxx.lua
 
 ## Usage
-player.GetName("STEAM_0:0:8597480")
+player.GetName("STEAM_0:0:8597480")\n
 player.GetName("76561197977460688")
 
 ## License
