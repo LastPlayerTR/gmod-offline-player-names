@@ -9,15 +9,15 @@ if not (sql.TableExists('offlineplayers')) then
         );
     ]])
 end
-hook.Add( "PlayerInitialSpawn", "FullLoadSetup", function( ply )
+hook.Add( "PlayerInitialSpawn", "OfflinePlayer:FullLoadHook", function( ply )
 	hook.Add( "SetupMove", ply, function( self, ply, _, cmd )
 		if self == ply and not cmd:IsForced() then
-			hook.Run( "PlayerFullLoad", self )
+			hook.Run( "OfflinePlayer:FullLoadHook", self )
 			hook.Remove( "SetupMove", self )
 		end
 	end )
 end )
-hook.Add("PlayerFullLoad", "savedatabase", function(ply)
+hook.Add("OfflinePlayer:FullLoadHook", "savedatabase", function(ply)
     local querystr = 'SELECT * FROM offlineplayers WHERE steamid64 = "%s";'
     local rows = sql.Query(string.Replace(querystr, '%s', ply:SteamID64()))
     if(rows == nil or rows == false) then
