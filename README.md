@@ -1,6 +1,6 @@
 # Garry's Mod Offline Player Name
 
-An easy way to find the names of players leaving the game.
+An easy way to find the names of players leaved the game.
 
 ## Installation
 
